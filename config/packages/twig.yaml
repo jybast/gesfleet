@@ -1,6 +1,14 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
 
+
+    # choix du framework pour le frontend
+    form_themes: ['bootstrap_5_layout.html.twig']
+
+    paths:
+        # Chemin pour les images du site dans les url
+        '%kernel.project_dir%/public/assets/img': images
+        
 when@test:
     twig:
         strict_variables: true
