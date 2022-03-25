@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "ACAA,AAEI,aAFS,CAET,UAAU,CAAC;EACP,OAAO,EAAE,IAAI;CAChB;;AAGL,AAAA,UAAU,CAAC;EACP,YAAY,EAAE,CAAC;EACf,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;CAKd;;AARH,AAII,UAJM,CAIN,aAAa,CAAC;EACV,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,CAAC;CACV",
     "sources": [
-        "../scss/theme.scss"
+        "../scss/theme.scss",
+        "../scss/layouts/_nav.scss"
     ],
     "names": [],
     "file": "theme.css"
