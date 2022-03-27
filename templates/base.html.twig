@@ -23,6 +23,19 @@
 		<script src="{{ asset('assets/js/scripts.js')}}"></script>
 	</head>
 	<body>
-		{% block body %}{% endblock %}
+		<div class="container">
+			{% block header %}
+				<section class="header">Header</section>
+			{% endblock %}
+			{% block body %}
+				<section id="body">
+					<h1>Body</h1>
+				</section>
+			{% endblock %}
+			{% block footer %}
+				<section id="footer">Footer</section>
+			{% endblock %}
+		</div>
+
 	</body>
 </html>

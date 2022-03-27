@@ -15,6 +15,7 @@ git push -u origin main
 
 ## Configuration
 *    Créer et Configurer le fichier .env.local:
+*    Supprimer le répertoire /assets
 *    Créer la base de données : symfony console doctrine:database:create
 *    Créer les dossiers /assets (css, img, js, scss) dans /public
 *    Créer dossiers /uploads (images, documents) et /docs dans /public
