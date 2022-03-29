@@ -1,38 +1,146 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!
+{% block title %}
+	{% trans %}
+	Contact Us
+	{% endtrans %}
 {% endblock %}
+{% block header %}
+	<nav class="navbar navbar-expand-lg navbar-light bg-info">
+		<div class="container-fluid">
+			<a class="navbar-brand mb-2" href="#">
+				<img src="{{ asset('assets/img/logo_transparent.png')}}" alt="Logo">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#HomeNavbar" aria-controls="HomeNavbar" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
+			<div class="collapse navbar-collapse" id="HomeNavbar">
+				<ul class="navbar-nav ms-auto mb-2">
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="#">{% trans %}
+							Home
+							{% endtrans %}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">{% trans %}Contact Us{% endtrans %}</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link">{% trans %}About Us{% endtrans %}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+{% endblock %}
 {% block body %}
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 800px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-	</style>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-10">
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<h3 class="heading mb-4">
+							{% trans %}Let's talk about everything{% endtrans %}
 
-	<div class="example-wrapper">
-		<h1>Hello
-			{{ controller_name }}! ✅</h1>
+						</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ipsam excepturi praesentium nemo vitae minima explicabo eveniet optio aspernatur fugiat.</p>
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis hic ipsa adipisci accusamus repellat? Amet a consectetur magnam nisi sit?</p>
+						<p>
+							<img src="{{ asset('assets/img/contact03.jpg')}}" alt="Contact">
+						</p>
+					</div>
+					<div class="col-md-6">
+						<div class="contact-container">
+							<div class="wrap-contact">
+								<div>
+									<span class="form-contact-logo">
+										<img src="{{ asset('assets/img/logo_transparent.png')}}" alt="">
+									</span>
+								</div>
+								<div>
+									{{ form_start(form)}}
 
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>
-					<a href="{{ 'D:/wamp64/www/gesfleet/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a>
-				</code>
-			</li>
-			<li>Your template at
-				<code>
-					<a href="{{ 'D:/wamp64/www/gesfleet/templates/main/contact.html.twig'|file_link(0) }}">templates/main/contact.html.twig</a>
-				</code>
-			</li>
-		</ul>
+									{{ form_label(form.email)}}
+									{{ form_widget(form.email)}}
+									{{ form_label(form.sujet)}}
+									{{ form_widget(form.sujet)}}
+									{{ form_label(form.message)}}
+									{{ form_widget(form.message)}}
+
+									{{ form_end(form)}}
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+	<div id="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 footer-contact">
+						<h3>GesParc</h3>
+						<address>
+							Vous pouvez contacter l'auteur à l'adresse
+							<a href="http://www.gesfleet.com/contact">www.gesfleet.com</a>.<br>
+							Vous pouvez nous laisser un message à :
+							<a href="mailto:webmaster@gesfleet.com">le webmaster</a>.<br>
+							Vous pouvez aussi venir nous voir :<br>
+							Gesfleet<br>
+							145, rue des murlins<br>
+							45000<br>
+							Orléans<br>
+							France
+						</address>
+
+					</div>
+					<div class="col-lg-2 col-md-6 footer-links">
+						<h4>Sitemap</h4>
+						<ul>
+							<li>
+								<i class="fa-solid fa-angle-right">Home</i>
+
+							</li>
+							<li>
+								<i class="fa-solid fa-angle-right">contact</i>
+
+							</li>
+							<li>
+								<i class="fa-solid fa-angle-right">Infos</i>
+
+							</li>
+							<li>
+								<i class="fa-solid fa-angle-right">Autre</i>
+
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 footer-links">
+						carte openstreetmap
+					</div>
+					<div class="col-lg-2 col-md-6 footer-links">
+						<div class="me-md-auto text-center text-md-start">
+							<div class="copyright">
+								@ 2019 Copyright
+								<strong>GesParc</strong>. All rights reserved.
+							</div>
+							<div class="credits">
+								Designed by
+								<a href="http://www.Gesfleet.com">Gesfleet</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 {% endblock %}

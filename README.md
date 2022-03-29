@@ -42,14 +42,22 @@ git push -u origin main
 
 ## Entity et base de données
     Créer les entités de la base de données
-
 ## Cas d'utilisation
+# Cas d'utilisation utilisateur
+    Cas d'utilisation "Visiter la page d'accueil"
+    - Front-end : la page d'accueil, la page contact, la page Infos
+    - Back-end : Envoi de mails
     Cas d'utilisation "s'enregistrer"
     Cas d'utilisation "se connecter"
-    Cas d'utilisation "Gerer le parc"
     Cas d'utilisation "Modifier le profil"
     Cas d'utilisation "Modifier le mot de passe"
     Cas d'utilisation "PDF Données personnelles"
+# cas d'utilisation conducteur
+
+# cas d'utilisation manager
+Cas d'utilisation "Gerer le parc"
+# cas d'utilisation administrateur
+
 ## TO DO
 
     

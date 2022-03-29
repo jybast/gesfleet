@@ -166,6 +166,225 @@
   color: #fff;
 }
 
+.heading {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.contact-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.wrap-contact {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 55px 55px 37px 55px;
+  background: #9152f8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#7579ff), to(#b224ef));
+  background: linear-gradient(top, #7579ff, #b224ef);
+}
+
+.form-contact {
+  width: 100%;
+}
+
+.form-contact-logo {
+  font-size: 60px;
+  color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 240px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.form-contact-title {
+  font-family: Poppins-Medium;
+  font-size: 30px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+}
+
+.wrap-input {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.24);
+  margin-bottom: 30px;
+}
+
+.input100 {
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px 0 38px;
+}
+
+.bg-woodtexture {
+  background: #959796 url(../img/texture_bois_01.jpg) repeat;
+}
+
+.h1-info {
+  font: bold 65px/60px Helvetica, Arial, Sans-serif;
+  text-align: center;
+  color: #eee;
+  text-shadow: 0px 2px 6px #333;
+}
+
+.h2-info a {
+  display: block;
+  text-decoration: none;
+  margin: 0 0 30px 0;
+  font: italic 45px Georgia, Times, Serif;
+  text-align: center;
+  color: #bfe1f1;
+  text-shadow: 0px 2px 6px #333;
+}
+
+.h2-info a:hover {
+  color: #90bcd0;
+}
+
+.img-info {
+  width: 200px;
+  max-height: 250px;
+}
+
+ul {
+  overflow: hidden;
+}
+
+ul .gallery {
+  list-style: none;
+}
+
+ul .gallery li a {
+  position: relative;
+  float: left;
+  padding: 10px 10px 30px 10px;
+  background: #eee;
+  border: 1px solid #fff;
+  -webkit-box-shadow: 0px 2px 15px #333;
+          box-shadow: 0px 2px 15px #333;
+}
+
+.pic-1 {
+  margin-top: 20px;
+  z-index: 1;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
+.pic-2 {
+  margin-top: 20px;
+  z-index: 5;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+}
+
+.pic-3 {
+  margin-right: 15px;
+  z-index: 3;
+  -webkit-transform: rotate(4deg);
+          transform: rotate(4deg);
+}
+
+.pic-4 {
+  z-index: 4;
+  -webkit-transform: rotate(14deg);
+          transform: rotate(14deg);
+}
+
+.pic-5 {
+  z-index: 2;
+  -webkit-transform: rotate(-12deg);
+          transform: rotate(-12deg);
+}
+
+.pic-6 {
+  z-index: 6;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+ul .gallery li a:hover {
+  z-index: 10;
+  -webkit-box-shadow: 3px 5px 15px #333;
+          box-shadow: 3px 5px 15px #333;
+}
+
+figure {
+  background: #ffffff;
+  display: inline-block;
+  margin: 55px 75px 30px;
+  padding: 15px 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all 0.20s linear;
+  transition: all 0.20s linear;
+  cursor: pointer;
+  position: relative;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+figcaption {
+  color: #333;
+  font-size: 25px;
+  position: relative;
+  top: 15px;
+}
+
+figure img {
+  display: block;
+  width: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+figure:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
 img {
   vertical-align: middle;
 }
