@@ -3,33 +3,7 @@
 {% block title %}Hello MainController!
 {% endblock %}
 {% block header %}
-	<nav class="navbar navbar-expand-lg navbar-light bg-info">
-		<div class="container-fluid">
-			<a class="navbar-brand mb-2" href="#">
-				<img src="{{ asset('assets/img/logo_transparent.png')}}" alt="Logo">
-			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#HomeNavbar" aria-controls="HomeNavbar" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="HomeNavbar">
-				<ul class="navbar-nav ms-auto mb-2">
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#">{% trans %}
-							Home
-							{% endtrans %}</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">{% trans %}Contact Us{% endtrans %}</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link">{% trans %}About Us{% endtrans %}</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	{% include "fragments/_nav.html.twig" %}
 
 
 {% endblock %}
@@ -86,78 +60,19 @@
 		<p>I will keep posting more important posts on my Website for all of you. Please give your support and love.</p>
 		<p style="font-weight: bold; text-align: center;">Thanks For Visiting Our Site<br><br>
 			<span style="color: blue; font-size: 16px; font-weight: bold; text-align: center;">Have a nice day !</span>
-		</p>Bonjour et bienvenue sur Gesfleet, une plateforme de gestion de flotte de véhicules privés pensée avec une vision professionnelle. Nous vous proposons uniquement des contenus qui vous séduiront. Nous sommes à l'écoute de vos suggestions et de vos commentaires. Nous travaillons à rendre votre besoin de gestion de flotte de véhicules une vraie réalité. Nous espérons que vous apprécierez les fonctionnalités offertes par notre plateforme et qu'elles vous serons utiles à tous égards.
-																																													
-																																													Notre mission est d’offrir à tous les utilisateurs une expérience de gestion de flotte de véhicules privés en ligne. Nous espérons que vous apprécierez notre plateforme et que vous l’utiliserez avec plaisir.
-																																													
-																																													Lorsque nous nous sommes lancés sur le développement de la plateforme en 2002, nous avions de grands rêves. Le temps d'apprentisssage s'est révélé très bénéfique et a permis le développements de nouvelles compétences afin de satisfaire pleinement les besoins.
-																																													
-																																													Passionnés, nous voulons être les esprits créatifs qui vous donnent le sourire. C’est pourquoi nous mettons tout en oeuvre pour vous apporter le meilleur.
-																																											
-																																													Hello and welcome to Gesfleet, a private vehicle fleet management platform designed with a professional vision. We only offer you content that will appeal to you. We are listening to your suggestions and comments. We work to make your need for vehicle fleet management a real reality. We hope that you will enjoy the features offered by our platform and that they will be useful to you in every way.
-																																											
-																																											Our mission is to provide all users with an online private vehicle fleet management experience. We hope you enjoy our platform and enjoy using it.
-																																											
-																																											When we started developing the platform in 2002, we had big dreams. The learning time proved to be very beneficial and allowed the development of new skills in order to fully meet the needs.
-																																											
-																																											Passionate, we want to be the creative minds that make you smile. That's why we do everything we can to bring you the best.
-	</body>
-</div></div>{% endblock %}{% block footer %}<div id="footer">
-<div class="footer-top">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-6 footer-contact">
-				<h3>GesParc</h3>
-				<address>
-					Vous pouvez contacter l'auteur à l'adresse
-					<a href="http://www.gesfleet.com/contact">www.gesfleet.com</a>.<br>
-					Vous pouvez nous laisser un message à :
-					<a href="mailto:webmaster@gesfleet.com">le webmaster</a>.<br>
-					Vous pouvez aussi venir nous voir :<br>
-					Gesfleet<br>
-					145, rue des murlins<br>
-					45000<br>
-					Orléans<br>
-					France
-				</address>
+		</p>
+		<p>Bonjour et bienvenue sur Gesfleet, une plateforme de gestion de flotte de véhicules privés pensée avec une vision professionnelle. Nous vous proposons uniquement des contenus qui vous séduiront. Nous sommes à l'écoute de vos suggestions et de vos commentaires. Nous travaillons à rendre votre besoin de gestion de flotte de véhicules une vraie réalité. Nous espérons que vous apprécierez les fonctionnalités offertes par notre plateforme et qu'elles vous serons utiles à tous égards.</p>
+		<p>Notre mission est d’offrir à tous les utilisateurs une expérience de gestion de flotte de véhicules privés en ligne. Nous espérons que vous apprécierez notre plateforme et que vous l’utiliserez avec plaisir.</p>
+		<p>Lorsque nous nous sommes lancés sur le développement de la plateforme en 2002, nous avions de grands rêves. Le temps d'apprentisssage s'est révélé très bénéfique et a permis le développements de nouvelles compétences afin de satisfaire pleinement les besoins.</p>
+		<p>Passionnés, nous voulons être les esprits créatifs qui vous donnent le sourire. C’est pourquoi nous mettons tout en oeuvre pour vous apporter le meilleur.</p>
+		<p>Hello and welcome to Gesfleet, a private vehicle fleet management platform designed with a professional vision. We only offer you content that will appeal to you. We are listening to your suggestions and comments. We work to make your need for vehicle fleet management a real reality. We hope that you will enjoy the features offered by our platform and that they will be useful to you in every way.</p>
+		<p>Our mission is to provide all users with an online private vehicle fleet management experience. We hope you enjoy our platform and enjoy using it.</p>
+		<p>When we started developing the platform in 2002, we had big dreams. The learning time proved to be very beneficial and allowed the development of new skills in order to fully meet the needs.</p>
+		<p>Passionate, we want to be the creative minds that make you smile. That's why we do everything we can to bring you the best.</p>
 
-			</div>
-			<div class="col-lg-2 col-md-6 footer-links">
-				<h4>Sitemap</h4>
-				<ul>
-					<li>
-						<i class="fa-solid fa-angle-right">Home</i>
-
-					</li>
-					<li>
-						<i class="fa-solid fa-angle-right">contact</i>
-
-					</li>
-					<li>
-						<i class="fa-solid fa-angle-right">Infos</i>
-
-					</li>
-					<li>
-						<i class="fa-solid fa-angle-right">Autre</i>
-
-					</li>
-				</ul>
-			</div>
-			<div class="col-lg-2 col-md-6 footer-links">
-				carte openstreetmap
-			</div>
-			<div class="col-lg-2 col-md-6 footer-links">
-				<div class="me-md-auto text-center text-md-start">
-					<div class="copyright">
-						@ 2019 Copyright
-						<strong>GesParc</strong>. All rights reserved.
-					</div>
-					<div class="credits">
-						Designed by
-						<a href="http://www.Gesfleet.com">Gesfleet</a>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
-</div></div>{% endblock %}
+
+{% endblock %}
+{% block footer %}
+	{% include "fragments/_footer.html.twig" %}
+{% endblock %}

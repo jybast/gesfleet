@@ -4,6 +4,9 @@
 	{% trans %}Register{% endtrans %}
 {% endblock %}
 
+{% block header %}
+	{% include "fragments/_nav.html.twig" %}
+{% endblock %}
 {% block body %}
 	{% for flash_error in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
@@ -16,8 +19,20 @@
 	{{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+	{{ form_row(registrationForm.firstname) }}
+	{{ form_row(registrationForm.lastname) }}
+	{{ form_row(registrationForm.phone) }}
+	{{ form_row(registrationForm.address) }}
+	{{ form_row(registrationForm.city) }}
+	{{ form_row(registrationForm.zipcode) }}
+
+	{{ form_row(registrationForm.birthdate) }}
+	{{ form_row(registrationForm.gender)}}
 	{{ form_row(registrationForm.agreeTerms) }}
 
-	<button type="submit" class="btn btn-info mt-2">{% trans %}Register{% endtrans %}</button>
+	<button type="submit" class="btn btn-info mt-2 mb-5">{% trans %}Register{% endtrans %}</button>
 	{{ form_end(registrationForm) }}
+{% endblock %}
+{% block footer %}
+	{% include "fragments/_footer.html.twig" %}
 {% endblock %}

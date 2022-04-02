@@ -1,0 +1,21 @@
+<div class="profile-sidebar">
+
+	<nav id="sidebar">
+		<div class="profile-sidebar-header">
+			<h3>Sidebar</h3>
+			<p><img src="{{ asset('assets/img/Jean-Yves.jpg')}}" class="sidebar-avatar" alt="Avatar"></p>
+		</div>
+		<ul class="list-unstyled components">
+
+			<li>
+				<a class="sidebar-link" href="{{ path('app_user_profile')}}">My Profile</a>
+			</li>
+			<li>
+				<a class="sidebar-link" href="{{ path('app_user_profile_edit')}}">Edit my profile</a>
+			</li>
+			<li>
+				<a class="sidebar-link" href="{{ path('app_forgot_password_request') }}">Reset password</a>
+			</li>
+		</ul>
+	</nav>
+</div>

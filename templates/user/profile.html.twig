@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User profile
+{% endblock %}
+
+
+{% block header %}
+	{% include "fragments/_nav.html.twig" %}
+
+{% endblock %}
+{% block body %}
+	<div class="row">
+		<div class="col-2">
+			{% include "user/_profile-sidebar.html.twig" %}
+		</div>
+		<div class="col-8 offset-1 py-3">
+			<div class="row">
+				<h1>Profile
+				</h1>
+				{% for message in app.flashes('message') %}
+					<div class="alert alert-success rounded-2" role="alert">{{ message }}</div>
+
+				{% endfor %}
+				<div class="col-6">
+					{{app.user.email}}
+					{{app.user.firstname}}
+					{{app.user.lastname}}
+					{{app.user.address}}
+					{{app.user.city}}
+					{{app.user.zipcode}}
+					{{app.user.phone}}
+
+					{{app.user.gender}}
+
+				</div>
+				<div class="col-6">Intox</div>
+			</div>
+
+		</div>
+	</div>
+</div>{% endblock %}{% block footer %}
+{% include "fragments/_footer.html.twig" %}{% endblock %}
