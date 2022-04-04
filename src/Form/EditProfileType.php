@@ -9,10 +9,18 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class EditProfileType extends AbstractType
 {
+    private $translator;
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -38,9 +46,9 @@ class EditProfileType extends AbstractType
             ->add('gender', ChoiceType::class, [
                 'label' => 'Gender',
                 'choices' => [
-                    'Maybe' => null,
-                    'Yes' => true,
-                    'No' => false,
+                    'male' => 'Male',
+                    'female' => 'Female',
+
                 ],
                 'expanded' => true,
                 'multiple' => false,
@@ -70,7 +78,27 @@ class EditProfileType extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('Save changes', SubmitType::class, [
+            ->add('images', FileType::class, [
+                'label' => false,
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => $this->translator->trans('Please upload a valid image'),
+                    ]),
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+
+            ])
+            ->add('Save', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-info mt-2 mb-3',
                 ],

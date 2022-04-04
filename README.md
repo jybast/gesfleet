@@ -45,12 +45,12 @@ git push -u origin main
 ## Cas d'utilisation
 # Cas d'utilisation utilisateur
     Cas d'utilisation "Visiter la page d'accueil"
-    - Front-end : la page d'accueil, la page contact, la page Infos
+*    - Front-end : la page d'accueil, la page contact, la page Infos, RGPD
     - Back-end : Envoi de mails
-    Cas d'utilisation "s'enregistrer"
-    Cas d'utilisation "se connecter"
-    Cas d'utilisation "Modifier le profil"
-    Cas d'utilisation "Modifier le mot de passe"
+*    Cas d'utilisation "s'enregistrer"
+*    Cas d'utilisation "se connecter"
+*    Cas d'utilisation "Consulter / Modifier le profil"
+*    Cas d'utilisation "Modifier le mot de passe"
     Cas d'utilisation "PDF Données personnelles"
 # cas d'utilisation conducteur
 

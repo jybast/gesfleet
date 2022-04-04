@@ -21,16 +21,56 @@
 					<div class="alert alert-success rounded-2" role="alert">{{ message }}</div>
 
 				{% endfor %}
-				<div class="col-6">
-					{{app.user.email}}
-					{{app.user.firstname}}
-					{{app.user.lastname}}
-					{{app.user.address}}
-					{{app.user.city}}
-					{{app.user.zipcode}}
-					{{app.user.phone}}
 
-					{{app.user.gender}}
+				{{dump(app.user)}}
+				<div class="col-6">
+					<h2>{% trans %}Profile of
+						{% endtrans %}
+
+						{{app.user.firstname}}
+						{{app.user.lastname}}</h2>
+					<div class="row">
+						<div class="col-6 col-md-3">
+							{% trans %}Name :{% endtrans %}
+						</div>
+						<div class="col-6 col-md-3">{{app.user.lastname}}</div>
+						<div class="col-6 col-md-3">
+							{% trans %}Firstname :{% endtrans %}
+						</div>
+						<div class="col-6 col-md-3">{{app.user.firstname}}</div>
+					</div>
+					<div class="row">
+						<div class="col-6 col-md-3">
+							{% trans %}E-mail :{% endtrans %}
+						</div>
+						<div class="col-6 col-md-3">{{app.user.email}}</div>
+						<div class="col-6 col-md-3">
+							{% trans %}Phone number :{% endtrans %}
+						</div>
+						<div class="col-6 col-md-3">{{app.user.phone}}</div>
+						<div class="row">
+							<div class="col-6 col-md-3">
+								{% trans %}Address :{% endtrans %}
+							</div>
+							<div class="col-6 col-md-3">{{app.user.address}}</div>
+							<div class="col-6 col-md-3">
+								{% trans %}city:{% endtrans %}
+							</div>
+							<div class="col-6 col-md-3">{{app.user.city}}</div>
+							<div class="col-6 col-md-3">
+								{% trans %}Zip Code:{% endtrans %}
+							</div>
+							<div class="col-6 col-md-3">{{app.user.zipcode}}</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-6 col-md-3">
+							{% trans %}gender :{% endtrans %}
+						</div>
+						<div class="col-6 col-md-3">
+							{{app.user.gender}}
+						</div>
+					</div>
 
 				</div>
 				<div class="col-6">Intox</div>

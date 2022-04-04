@@ -17,11 +17,21 @@
 			<div class="row">
 				<h1>Edit Profile
 				</h1>
-				<div class="col-6">Infos</div>
-				<div class="col-6">Intox</div>
+				<div class="col-6">
+					{{ form_start(form) }}
+					{{ form_widget(form) }}
+					{{ form_end(form) }}
+				</div>
+				<div class="col-6">
+					{% for image in app.user.images %}
+						<img src="{{ asset('uploads/images/'~ image.name) }}" alt="" width="150">
+						<a href="{{ path('app_user_delete_image', {id: image.id})}}" data-delete data-token="{{ csrf_token('delete' ~ image.id )}}">{% trans %}Delete avatar{% endtrans %}</a>
+					{% endfor %}
+				</div>
 			</div>
 
 		</div>
 	</div>
 </div>{% endblock %}{% block footer %}
-{% include "fragments/_footer.html.twig" %}{% endblock %}
+{% include "fragments/_footer.html.twig" %}{% endblock %}{% block javascripts %}
+<script src="{{ asset('assets/js/deleteImage.js')}}"></script>{% endblock %}

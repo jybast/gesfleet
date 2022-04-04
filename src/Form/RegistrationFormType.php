@@ -4,51 +4,59 @@ namespace App\Form;
 
 use App\Entity\User;
 use DateTimeImmutable;
-use Doctrine\DBAL\Types\DateImmutableType;
 use Symfony\Component\Form\AbstractType;
+use Doctrine\DBAL\Types\DateImmutableType;
 use Doctrine\DBAL\Types\DateTimeImmutableType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegistrationFormType extends AbstractType
 {
+    private $translator;
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'E-mail',
                 'attr' => [
                     'placeholder' => 'Email',
                 ],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter an email',
-                    ]),
-                ],
+                    new Regex([
+                        'pattern' => "#^[a-zA-Z0-9.!$\#%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$#",
+                        'message' => $this->translator->trans('The format of your email is incorrect')
+                    ])
+                ]
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ['autocomplete' => $this->translator->trans('new-password')],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => $this->translator->trans('Please enter a password'),
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => $this->translator->trans('Your password should be at least {{ limit }} characters'),
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
@@ -57,92 +65,94 @@ class RegistrationFormType extends AbstractType
             ->add('firstname', TextType::class, [
                 'label' => 'Firstname',
                 'attr' => [
-                    'placeholder' => 'Firstname',
+                    'placeholder' => $this->translator->trans('Firstname'),
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a firstname',
+                        'message' => $this->translator->trans('Please enter a firstname'),
                     ]),
                 ],
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'Lastname',
                 'attr' => [
-                    'placeholder' => 'Lastname',
+                    'placeholder' => $this->translator->trans('Lastname'),
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a lastname',
+                        'message' => $this->translator->trans('Please enter a lastname'),
                     ]),
                 ],
             ])
             ->add('address', TextType::class, [
                 'label' => 'Address',
                 'attr' => [
-                    'placeholder' => 'Address',
+                    'placeholder' => $this->translator->trans('Address'),
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter an address',
+                        'message' => $this->translator->trans('Please enter an address'),
                     ]),
                 ],
             ])
             ->add('city', TextType::class, [
-                'label' => 'City',
+                'label' => $this->translator->trans('City'),
                 'attr' => [
                     'placeholder' => 'City',
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a city',
+                        'message' => $this->translator->trans('Please enter a city'),
                     ]),
                 ],
             ])
             ->add('zipcode', TextType::class, [
-                'label' => 'Zipcode',
+                'label' => $this->translator->trans('Zipcode'),
                 'attr' => [
                     'placeholder' => 'Zipcode',
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a zipcode',
+                        'message' => $this->translator->trans('Please enter a zipcode'),
                     ]),
                 ],
             ])
             ->add('phone', TextType::class, [
-                'label' => 'Phone',
+                'label' => $this->translator->trans('Phone'),
                 'attr' => [
                     'placeholder' => 'Phone',
                 ],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a phone',
+                        'message' => $this->translator->trans('Please enter a phone'),
                     ]),
                 ],
             ])
             ->add('birthdate', DateTimeType::class, [
-                'label' => 'Birthdate',
+                'label' => $this->translator->trans('Birthdate'),
                 'input' => 'datetime_immutable',
+                'years' => range(date('Y') - 80, date('Y') + 5),
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a birthdate',
+                        'message' => $this->translator->trans('Please enter a birthdate'),
                     ]),
                 ],
             ])
             ->add('gender', ChoiceType::class, [
                 'choices' => [
-                    'male' => 'male',
-                    'female' => 'female',
+                    'Male' => 'male',
+                    'Female' => 'female',
                 ],
                 'multiple' => false,
                 'expanded' => true
 
             ])
+
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => $this->translator->trans('You should agree to our terms.'),
                     ]),
                 ],
             ]);
