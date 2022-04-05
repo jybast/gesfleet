@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Site de gestion d'un parc automobile privé">
+		<meta name="author" content="Jean-Yves BASTARD">
+
+		<title>
+			{% block title %}GesFleet
+			{% endblock %}
+		</title>
+
+		<!-- Feuilles de styles -->
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}"> {% block stylesheets %}{% endblock %}
+		<link
+		rel="stylesheet" href="{{ asset('assets/css/theme.css')}}">
+		<!-- Fichiers Javascript -->
+		<script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+		<script src="https://kit.fontawesome.com/88d4e45bc1.js" crossorigin="anonymous"></script>
+
+		{% block javascripts %}{% endblock %}
+
+	</head>
+	<body>
+		<div class="container">
+			{% block header %}
+				<section class="header">Header</section>
+			{% endblock %}
+			{% block body %}
+				<section id="body">
+					<h1>Body</h1>
+				</section>
+			{% endblock %}
+			{% block footer %}
+				<section id="footer">Footer</section>
+			{% endblock %}
+		</div>
+
+	</body>
+</html>

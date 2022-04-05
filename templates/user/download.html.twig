@@ -1,0 +1,53 @@
+{% extends 'base-pdf.html.twig' %}
+
+{% block title %}Personnal data
+{% endblock %}
+
+
+{% block header %}{% endblock %}
+{% block body %}
+	<div class="row">
+
+		<h1>{% trans %}Data of
+			{% endtrans %}
+			{{app.user.firstname}}
+			{{app.user.lastname}}
+		</h1>
+
+		<table border="1">
+			<tr>
+				<td scope="col">{% trans %}Avatar :{% endtrans %}</td>
+				<td scope="col">
+					<img src="{{ absolute_url(asset('/uploads/images/' ~ app.user.images[0].name)) }}"></td>
+			</tr>
+			<tr>
+				<td scope="col">{% trans %}Name :{% endtrans %}</td>
+				<td scope="col">{{app.user.lastname}}</td>
+			</tr>
+			<tr>
+				<td scope="col">{% trans %}Firstname :{% endtrans %}</td>
+				<td scope="col">{{app.user.firstname}}</td>
+			</tr>
+			<tr>
+				<td scope="col">{% trans %}E-mail :{% endtrans %}</td>
+				<td scope="col">{{app.user.email}}</td>
+			</tr>
+			<tr>
+				<td scope="col">{% trans %}Phone number :{% endtrans %}</td>
+				<td scope="col">{{app.user.phone}}</td>
+			</tr>
+			<tr>
+				<td scope="col">{% trans %}Address :{% endtrans %}</td>
+				<td scope="col">{{app.user.address}}</td>
+			</tr>
+			<tr>
+				<td scope="col">{% trans %}City :{% endtrans %}</td>
+				<td scope="col">{{app.user.city}}</td>
+			</tr>
+			<tr>
+				<td scope="col">{% trans %}Postal code :{% endtrans %}</td>
+				<td scope="col">{{app.user.zipcode}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>{% endblock %}{% block footer %}{% endblock %}

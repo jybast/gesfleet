@@ -49,9 +49,9 @@ git push -u origin main
     - Back-end : Envoi de mails
 *    Cas d'utilisation "s'enregistrer"
 *    Cas d'utilisation "se connecter"
-*    Cas d'utilisation "Consulter / Modifier le profil"
+*    Cas d'utilisation "Consulter / Modifier le profil / ajout image"
 *    Cas d'utilisation "Modifier le mot de passe"
-    Cas d'utilisation "PDF Données personnelles"
+*    Cas d'utilisation " Données personnelles PDF" : composer require dompdf/dompdf
 # cas d'utilisation conducteur
 
 # cas d'utilisation manager

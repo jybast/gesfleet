@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User profile
+{% block title %}Personnal data
 {% endblock %}
 
 
@@ -15,16 +15,16 @@
 		</div>
 		<div class="col-8 offset-1 py-3">
 			<div class="row">
-				<h1>{% trans %}Profile of
+				<h1>{% trans %}Data of
 					{% endtrans %}
 					{{app.user.firstname}}
 					{{app.user.lastname}}
 				</h1>
 				{% for message in app.flashes('message') %}
 					<div class="alert alert-success rounded-2" role="alert">{{ message }}</div>
-
 				{% endfor %}
-
+				<a href="{{ path('app_user_data_download')}}" class="btn btn-info mt-2 mb-2">{% trans %}Download data
+					{% endtrans %}</a>
 
 				<div class="table-responsive">
 					<table class="table table-bordered table-striped">
@@ -65,9 +65,7 @@
 				</table>
 			</div>
 		</div>
-
 	</div>
-{% endblock %}
-{% block footer %}
-	{% include "fragments/_footer.html.twig" %}
-{% endblock %}
+
+</div>{% endblock %}{% block footer %}
+{% include "fragments/_footer.html.twig" %}{% endblock %}

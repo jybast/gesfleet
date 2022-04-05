@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Entity\Image;
 use App\Form\EditProfileType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -65,6 +67,51 @@ class UserController extends AbstractController
         return $this->render('user/editprofile.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('/data', name: 'data')]
+    //#[IsGranted('ROLE_USER')]
+    public function data(): Response
+    {
+        return $this->render('user/data.html.twig', []);
+    }
+
+    #[Route('/data/download', name: 'data_download')]
+    //#[IsGranted('ROLE_USER')]
+    public function download(): Response
+    {
+        // PDF options
+        $options = new Options();
+        $options->set('defaultFont', 'Arial');
+        $options->set('isRemoteEnabled', true);
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($options);
+        $context = stream_context_create([
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ]
+        ]);
+        $dompdf->setHttpContext($context);
+
+        // Load HTML content
+        $dompdf->loadHtml(
+            $this->renderView('user/download.html.twig', [])
+        );
+        $dompdf->setPaper('A4', 'portrait');
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // create a new file name
+        $fileName = $this->getUser()->getFirstname() . ' ' . $this->getUser()->getLastname() . '.pdf';
+
+        // Output the generated PDF to Browser
+        $dompdf->stream($fileName, [
+            'Attachment' => true
+        ]);
+
+        return new Response();
     }
 
     #[Route('/pass/edit', name: 'pass_edit')]
