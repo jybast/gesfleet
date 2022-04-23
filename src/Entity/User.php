@@ -58,6 +58,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Image::class, orphanRemoval: true, cascade: ['persist'])]
     private $images;
 
+    #[ORM\ManyToOne(targetEntity: Logbook::class, inversedBy: 'driver')]
+    private $logbook;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -271,6 +274,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $image->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLogbook(): ?Logbook
+    {
+        return $this->logbook;
+    }
+
+    public function setLogbook(?Logbook $logbook): self
+    {
+        $this->logbook = $logbook;
 
         return $this;
     }
