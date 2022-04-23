@@ -40,8 +40,6 @@ git push -u origin main
 *    composer require symfonycasts/reset-password-bundle
 *    symfony console make:reset-password
 
-## Entity et base de données
-    Créer les entités de la base de données
 ## Cas d'utilisation
 # Cas d'utilisation utilisateur
     Cas d'utilisation "Visiter la page d'accueil"
@@ -60,6 +58,8 @@ Cas d'utilisation "Gerer le parc"
 
 ## TO DO
 
+## Entity et base de données
+    Créer les entités de la base de données
     
     Préparer mise en place traduction multilingue
     -> symfony console translation:extract --force --prefix="gf_" fr

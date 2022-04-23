@@ -5,69 +5,81 @@
 
 
 {% block header %}
-	{% include "fragments/_nav.html.twig" %}
-
+	{{	include('user/_profile-header.html.twig') }}
 {% endblock %}
 {% block body %}
-	<div class="row">
-		<div class="col-2">
-			{% include "user/_profile-sidebar.html.twig" %}
-		</div>
-		<div class="col-8 offset-1 py-3">
-			<div class="row">
-				<h1>{% trans %}Profile of
-					{% endtrans %}
-					{{app.user.firstname}}
-					{{app.user.lastname}}
-				</h1>
-				{% for message in app.flashes('message') %}
-					<div class="alert alert-success rounded-2" role="alert">{{ message }}</div>
+	<div id="layoutSidenav">
+		{{	include('user/_profile-sidebar.html.twig') }}
 
-				{% endfor %}
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid px-4">
+					<h1>{% trans %}Profile of
+						{% endtrans %}
+						{{app.user.firstname}}
+						{{app.user.lastname}}
+					</h1>
 
+					<div class="row">
 
-				<div class="table-responsive">
-					<table class="table table-bordered table-striped">
-						<tr>
-							<td>{% trans %}Avatar :{% endtrans %}</td>
-							<td>
-								<img src="{{ asset('/uploads/images/' ~ app.user.images[0].name)}}" alt=""></td>
-						</tr>
-						<tr>
-							<td>{% trans %}Name :{% endtrans %}</td>
-							<td>{{app.user.lastname}}</td>
-						</tr>
-						<tr>
-							<td>{% trans %}Firstname :{% endtrans %}</td>
-							<td>{{app.user.firstname}}</td>
-						</tr>
-						<tr>
-							<td>{% trans %}E-mail :{% endtrans %}</td>
-							<td>{{app.user.email}}</td>
-						</tr>
-						<tr>
-							<td>{% trans %}Phone number :{% endtrans %}</td>
-							<td>{{app.user.phone}}</td>
-						</tr>
-						<tr>
-							<td>{% trans %}Address :{% endtrans %}</td>
-							<td>{{app.user.address}}</td>
-						</tr>
-						<tr>
-							<td>{% trans %}City :{% endtrans %}</td>
-							<td>{{app.user.city}}</td>
-						</tr>
-						<tr>
-							<td>{% trans %}Postal code :{% endtrans %}</td>
-							<td>{{app.user.zipcode}}</td>
-						</tr>
-					</tbody>
-				</table>
+						{% for message in app.flashes('message') %}
+							<div class="alert alert-success rounded-2" role="alert">{{ message }}</div>
+
+						{% endfor %}
+
+						<div class="col-12 col-md-6">
+
+							<div class="table-responsive">
+								<table class="table table-bordered table-striped">
+									<tr>
+										<td>{% trans %}Avatar :{% endtrans %}</td>
+										<td>
+											<img class="img-fluid" src="{{ asset('/uploads/images/' ~ app.user.images[0].name)}}" alt=""></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="table-responsive">
+								<table class="table table-bordered table-striped">
+
+									<tr>
+										<td>{% trans %}Name :{% endtrans %}</td>
+										<td>{{app.user.lastname}}</td>
+									</tr>
+									<tr>
+										<td>{% trans %}Firstname :{% endtrans %}</td>
+										<td>{{app.user.firstname}}</td>
+									</tr>
+									<tr>
+										<td>{% trans %}E-mail :{% endtrans %}</td>
+										<td>{{app.user.email}}</td>
+									</tr>
+									<tr>
+										<td>{% trans %}Phone number :{% endtrans %}</td>
+										<td>{{app.user.phone}}</td>
+									</tr>
+									<tr>
+										<td>{% trans %}Address :{% endtrans %}</td>
+										<td>{{app.user.address}}</td>
+									</tr>
+									<tr>
+										<td>{% trans %}City :{% endtrans %}</td>
+										<td>{{app.user.city}}</td>
+									</tr>
+									<tr>
+										<td>{% trans %}Postal code :{% endtrans %}</td>
+										<td>{{app.user.zipcode}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</main>
 			</div>
 		</div>
-
-	</div>
-{% endblock %}
-{% block footer %}
-	{% include "fragments/_footer.html.twig" %}
-{% endblock %}
+	{% endblock %}
+	{% block footer %}
+		{% include "fragments/_footer.html.twig" %}
+	{% endblock %}

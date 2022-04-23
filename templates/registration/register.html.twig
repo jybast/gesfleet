@@ -11,27 +11,65 @@
 	{% for flash_error in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
 	{% endfor %}
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-10">
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<h1>{% trans %}Register{% endtrans %}</h1>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ipsam excepturi praesentium nemo vitae minima explicabo eveniet optio aspernatur fugiat.</p>
+						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis hic ipsa adipisci accusamus repellat? Amet a consectetur magnam nisi sit?</p>
+						<p>
+							<img src="{{ asset('assets/img/contact03.jpg')}}" alt="Contact">
+						</p>
+					</div>
+					<div class="col-md-6">
 
-	<h1>{% trans %}Register{% endtrans %}</h1>
 
-	{{ form_start(registrationForm) }}
-	{{ form_row(registrationForm.email) }}
-	{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-	{{ form_row(registrationForm.firstname) }}
-	{{ form_row(registrationForm.lastname) }}
-	{{ form_row(registrationForm.phone) }}
-	{{ form_row(registrationForm.address) }}
-	{{ form_row(registrationForm.city) }}
-	{{ form_row(registrationForm.zipcode) }}
+						{{ form_start(registrationForm) }}
+						<h2>{% trans %}Credentials{% endtrans %}</h2>
+						<div class="row">
+							<div class="col-12 col-md-6">
+								{{ form_row(registrationForm.email) }}
+							</div>
+							<div class="col-12 col-md-6">
+								{{ form_row(registrationForm.plainPassword, {
+								label: 'Password'
+							}) }}
+							</div>
+						</div>
+						<h2>{% trans %}Identity{% endtrans %}</h2>
+						<div class="row">
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.firstname) }}</div>
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.lastname) }}</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.birthdate) }}</div>
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.gender)}}</div>
+						</div>
 
-	{{ form_row(registrationForm.birthdate) }}
-	{{ form_row(registrationForm.gender)}}
-	{{ form_row(registrationForm.agreeTerms) }}
 
-	<button type="submit" class="btn btn-info mt-2 mb-5">{% trans %}Register{% endtrans %}</button>
-	{{ form_end(registrationForm) }}
+						<h2>{% trans %}Address{% endtrans %}</h2>
+						<div class="row">
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.address) }}</div>
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.city) }}</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.phone) }}</div>
+							<div class="col-12 col-md-6">{{ form_row(registrationForm.zipcode) }}</div>
+						</div>
+
+
+						<h2>{% trans %}Agreements{% endtrans %}</h2>
+						{{ form_row(registrationForm.agreeTerms) }}
+
+						<button type="submit" class="btn btn-info mt-2 mb-5">{% trans %}Register{% endtrans %}</button>
+						{{ form_end(registrationForm) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 {% block footer %}
 	{% include "fragments/_footer.html.twig" %}
